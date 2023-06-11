@@ -1,7 +1,13 @@
-
-def main():
-    print("Hello world")
+from fastapi import FastAPI, Depends, HTTPException, Query, status
 
 
-if __name__ == "__main__":
-    main()
+app = FastAPI()
+
+@app.get("/Heater/Ping", status_code=status.HTTP_200_OK)
+def ping():
+    return {}
+
+@app.get("/Heater/Request/{card_id}", status_code=status.HTTP_200_OK)
+def request(card_id: str):
+    print(card_id)
+    return {}
